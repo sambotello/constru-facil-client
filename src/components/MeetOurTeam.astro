@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets'
+import MeetOurTeamCard from './MeetOurTeamCard.astro'
+import product1 from '../assets/products/product-01.webp'
+import product3 from '../assets/products/product-03.webp'
+import product5 from '../assets/products/product-05.webp'
+import product4 from '../assets/products/product-04.webp'
+---
+
+<!-- <div class="absolute h-[450px] w-full bg-amber-100"></div> -->
+<section class="section-bg w-full">
+    <div class="container mx-auto px-10 pb-20">
+        <div class="flex flex-col items-center space-y-2 py-14">
+            <p class="text-sm font-extralight uppercase">Ventajas</p>
+            <p class="text-3xl">SPC Flooring</p>
+            <hr class="mt-4 w-36" />
+        </div>
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <MeetOurTeamCard
+                title="Zoclo SPC"
+                description="El accesorio perfecto para la terminacion de la colocacion del piso SPC."
+            >
+                <Image src={product1} alt="Zoclo SPC" />
+            </MeetOurTeamCard>
+            <MeetOurTeamCard
+                title="Alta resistencia"
+                description="Resistente al agua, humedad y cambios de temperatura."
+            >
+                <Image src={product3} alt="Alta resistencia" />
+            </MeetOurTeamCard>
+            <MeetOurTeamCard
+                title="Fácil instalación"
+                description="Su instalación es muy sencilla y rápida, no requiere el uso de junteador lo que se traduce en una gran ventaja."
+            >
+                <Image src={product5} alt="Fácil instalación" />
+            </MeetOurTeamCard>
+            <MeetOurTeamCard
+                title="Diseño realista"
+                description="Los paneles SPC imitan con gran precisión las texturas y patrones del mármol, la pizarra y la caliza."
+            >
+                <Image src={product4} alt="Diseño realista" />
+            </MeetOurTeamCard>
+        </div>
+    </div>
+</section>
+
+<style>
+    .section-bg {
+        position: relative;
+    }
+
+    .section-bg::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background-color: #e4d7cc; /* Amber-100 color */
+        z-index: -1;
+    }
+
+    @media (width <= 1024px) {
+        .section-bg {
+            position: relative;
+            background-color: #e4d7cc;
+        }
+    }
+</style>

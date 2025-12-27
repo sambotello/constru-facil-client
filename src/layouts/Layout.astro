@@ -1,0 +1,23 @@
+---
+import '../styles/global.css'
+import Head from '../components/Head.astro'
+interface Props {
+    title?: string
+    description?: string
+}
+
+const {
+    title = 'Constru Facil',
+    description = 'Constru Facil - Venta de pisos y acabados para la construcción',
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <Head title={title} description={description} />
+    </head>
+    <body class="h-screen">
+        <slot />
+    </body>
+</html>

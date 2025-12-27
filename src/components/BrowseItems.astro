@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets'
+import gallery1 from '../assets/gallery/gallery-01.webp'
+import gallery2 from '../assets/gallery/gallery-02.webp'
+import gallery3 from '../assets/gallery/gallery-03.webp'
+import gallery4 from '../assets/gallery/gallery-04.webp'
+import gallery5 from '../assets/gallery/gallery-05.webp'
+import gallery6 from '../assets/gallery/gallery-06.webp'
+import gallery7 from '../assets/gallery/gallery-07.webp'
+import gallery8 from '../assets/gallery/gallery-08.webp'
+---
+
+<!-- <div class="absolute h-[450px] w-full bg-amber-100"></div> -->
+<section class="w-full">
+    <div class="px-10 pb-20">
+        <div class="flex flex-col items-center space-y-2 py-14">
+            <p class="text-sm font-extralight uppercase">Accesorios</p>
+            <p class="text-3xl">SCP Flooring / Wall panel</p>
+            <hr class="mt-4 w-36" />
+        </div>
+        <div class="grid grid-cols-2 gap-8 lg:grid-cols-4">
+            <Image src={gallery1} alt="Flooring / Wall panel" />
+            <Image src={gallery2} alt="Flooring / Wall panel" />
+            <Image src={gallery3} alt="Flooring / Wall panel" />
+            <Image src={gallery4} alt="Flooring / Wall panel" />
+            <Image src={gallery5} alt="Flooring / Wall panel" />
+            <Image src={gallery6} alt="Flooring / Wall panel" />
+            <Image src={gallery7} alt="Flooring / Wall panel" />
+            <Image src={gallery8} alt="Flooring / Wall panel" />
+        </div>
+    </div>
+</section>

@@ -1,0 +1,24 @@
+---
+import BrowseItems from '../components/BrowseItems.astro'
+import Hero from '../components/Hero.astro'
+import MeetOurTeam from '../components/MeetOurTeam.astro'
+import Logos from '../components/Logos.astro'
+import Promo from '../components/Promo.astro'
+import Layout from '../layouts/Layout.astro'
+import Features from '../components/Features.astro'
+---
+
+<Layout
+    title="Constru Facil - Venta de pisos y acabados para la construcción"
+    description="En Constru Facil encontrarás los mejores precios en pisos y acabados para la construcción. Contamos con una gran variedad de productos para que remodeles tu hogar."
+>
+    <Hero />
+    <Features />
+    <BrowseItems />
+    <MeetOurTeam />
+    <Logos />
+    <Promo />
+    <div class="p-10">
+        <p>footer</p>
+    </div>
+</Layout>

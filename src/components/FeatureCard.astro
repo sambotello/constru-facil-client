@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets'
+import item01 from '../assets/items/item-01.webp'
+interface Props {
+    title: string
+    description: string
+    image: {
+        src: ImageMetadata
+        alt: string
+    }
+}
+const {
+    title = 'Estética Sofisticada',
+    description = 'Sus tonos naturales evocan elegancia y convierten cualquier espacio en un ambiente sofisticado y lleno de distinción',
+    image = {
+        src: item01,
+        alt: 'Item 1',
+    },
+} = Astro.props as Props
+---
+
+<div>
+    <div class="relative h-90 w-full bg-cover bg-center">
+        <div class="absolute top-10 left-10 z-10 text-white">
+            <p class="text-2xl font-semibold">{title}</p>
+            <hr class="mt-4 w-24" />
+        </div>
+        <Image
+            src={image.src}
+            alt={image.alt}
+            loading="eager"
+            class="absolute top-0 left-0 h-full w-full object-cover"
+        />
+    </div>
+    <div class="py-4">
+        <p>{description}</p>
+    </div>
+</div>

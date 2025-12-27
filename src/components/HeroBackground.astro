@@ -1,0 +1,108 @@
+---
+import { Image } from 'astro:assets'
+import hero1 from '../assets/header/header-01.webp'
+import hero2 from '../assets/header/header-02.webp'
+import hero3 from '../assets/header/header-03.webp'
+import hero4 from '../assets/header/header-04.webp'
+import HeroText from './HeroText.astro'
+
+const items = [
+    {
+        category: 'Exterior',
+        title: 'Esquinero',
+        description: 'Esquinero para Lambrín exterior, resistente y duradero.',
+        image: {
+            src: hero1,
+            alt: 'Esquinero para Lambrín exterior, resistente y duradero.',
+        },
+    },
+    {
+        category: 'Exterior',
+        title: 'Esquinero',
+        description: 'Esquinero para Lambrín exterior, resistente y duradero.',
+        image: {
+            src: hero2,
+            alt: 'Esquinero para Lambrín exterior, resistente y duradero.',
+        },
+    },
+    {
+        category: 'Interior',
+        title: 'SPC',
+        description:
+            'Paredes y pisos que transforman espacios con durabilidad y estilo.',
+        image: {
+            src: hero3,
+            alt: 'Paredes y pisos que transforman espacios con durabilidad y estilo.',
+        },
+    },
+    {
+        category: 'Interior',
+        title: 'SPC',
+        description:
+            'Paredes y pisos que transforman espacios con durabilidad y estilo.',
+        image: {
+            src: hero4,
+            alt: 'Paredes y pisos que transforman espacios con durabilidad y estilo.',
+        },
+    },
+]
+
+const timeDelay = 5000
+---
+
+<div id="image-container" class="relative h-full w-full bg-cover bg-center">
+    {
+        items.map((item, index) => (
+            <div class="">
+                <Image
+                    src={item.image.src}
+                    alt={item.image.alt}
+                    loading="eager"
+                    class={`absolute top-0 left-0 h-full w-full object-cover transition-opacity duration-1000 ${
+                        index === 0 ? 'opacity-100' : 'opacity-0'
+                    }`}
+                />
+                <div
+                    class={`absolute top-0 left-0 h-full w-full transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+                    data-text="hero-text"
+                >
+                    <HeroText
+                        category={item.category}
+                        title={item.title}
+                        description={item.description}
+                    />
+                </div>
+            </div>
+        ))
+    }
+</div>
+
+<script is:inline define:vars={{ items, timeDelay }}>
+    const container = document.getElementById('image-container')
+
+    if (!container) {
+        throw new Error('Could not find image container')
+    }
+
+    const imageElements = container.querySelectorAll('img')
+    const textElements = container.querySelectorAll('[data-text="hero-text"]')
+    let currentIndex = 0
+
+    // preload
+    items.forEach((item) => {
+        const img = new Image()
+        img.src = item.image.src
+    })
+
+    setInterval(() => {
+        const nextIndex = (currentIndex + 1) % imageElements.length
+
+        imageElements[currentIndex].style.opacity = '0'
+        imageElements[nextIndex].style.opacity = '1'
+
+        textElements[currentIndex].style.opacity = '0'
+        textElements[nextIndex].style.opacity = '1'
+
+        currentIndex = nextIndex
+    }, timeDelay)
+</script>

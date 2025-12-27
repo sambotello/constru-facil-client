@@ -1,0 +1,50 @@
+---
+import item01 from '../assets/items/item-01.webp'
+import item02 from '../assets/items/item-02.webp'
+import item03 from '../assets/items/item-03.webp'
+import FeatureCard from './FeatureCard.astro'
+
+const items = [
+    {
+        title: 'Estética Sofisticada',
+        description:
+            'Sus tonos naturales evocan elegancia y convierten cualquier espacio en un ambiente sofisticado y lleno de distinción.',
+        image: {
+            src: item01,
+            alt: 'Estética Sofisticada',
+        },
+    },
+    {
+        title: 'Fácil Limpieza',
+        description:
+            'Mantiene las uniones impecables y se limpia fácil con un paño suave y húmedo, sin complicaciones ni mantenimiento extra.',
+        image: {
+            src: item02,
+            alt: 'Fácil Limpieza',
+        },
+    },
+    {
+        title: 'Resistente al Fuego',
+        description:
+            'Brinda un acabado limpio y moderno, con la seguridad de ser retardante al fuego y no propagarlo.',
+        image: {
+            src: item03,
+            alt: 'Resistente al Fuego',
+        },
+    },
+]
+---
+
+<section class="p-10">
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+        {
+            items.map((item) => (
+                <FeatureCard
+                    title={item.title}
+                    description={item.description}
+                    image={item.image}
+                />
+            ))
+        }
+    </div>
+</section>
